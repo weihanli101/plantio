@@ -71,6 +71,6 @@ mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
     console.log('Database connected!')
 })
 
-const server = http.listen(3000 || process.env.PORT, () => {
+const server = http.listen(process.env.PORT || 3000, () => {
     console.log('server is listening on port', server.address().port)
 })
