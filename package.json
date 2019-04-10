@@ -1,0 +1,32 @@
+{
+  "name": "plantio",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "weihanli",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.5.0",
+    "moongoose": "0.0.5",
+    "socket.io": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weihanli101/NodeMessenger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weihanli101/NodeMessenger/issues"
+  },
+  "homepage": "https://github.com/weihanli101/NodeMessenger#readme",
+  "description": "Learning how to use node.js",
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "request": "^2.88.0"
+  }
+}
