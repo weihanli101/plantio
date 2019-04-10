@@ -1,19 +1,21 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var app = express()
-var http = require('http').Server(app)
-var io = require('socket.io')(http)
-var mongoose = require('mongoose')
+const express          = require('express')
+const bodyParser       = require('body-parser')
+const app              = express()
+const http             = require('http').Server(app)
+const io               = require('socket.io')(http)
+const mongoose         = require('mongoose')
+const cors             = require('cors');
 
+
+// middleware
 app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors());
 
-mongoose.Promise = Promise
+const dbUrl = 'mongodb://tester:tester@ds121730.mlab.com:21730/node-messenger'
 
-var dbUrl = 'mongodb://tester:tester@ds121730.mlab.com:21730/node-messenger'
-
-var Message = mongoose.model('Message', {
+const Message = mongoose.model('Message', {
     name: String,
     message: String
 })
@@ -25,7 +27,7 @@ app.get('/messages', (req, res) => {
 })
 
 app.get('/messages/:user', (req, res) => {
-    var user = req.param.user
+    const user = req.param.user
     Message.find({name: user}, (err, messages) => {
         res.send(messages)
     })
@@ -34,13 +36,13 @@ app.get('/messages/:user', (req, res) => {
 app.post('/messages', async (req, res) => {
 
     try {
-        var message = new Message(req.body)
+        const message = new Message(req.body)
 
-        var savedMessage = await message.save()
+        const savedMessage = await message.save()
 
         console.log('saved')
 
-        var censored = await Message.findOne({ message: 'badword' })
+        const censored = await Message.findOne({ message: 'badword' })
 
         if (censored)
             await Message.remove({ _id: censored.id })
@@ -62,13 +64,13 @@ io.on('connection', (socket) => {
     console.log('a user connected')
 })
 
-mongoose.connect(dbUrl, (err) => {
+mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
     if(err) {
         console.log('Database failed to connect.');
     }
     console.log('Database connected!')
 })
 
-var server = http.listen(process.env.PORT || 3000, () => {
+const server = http.listen(3000 || process.env.PORT, () => {
     console.log('server is listening on port', server.address().port)
 })
