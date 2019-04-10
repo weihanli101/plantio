@@ -1,3 +1,3 @@
-# NodeMessenger
+# Plantio
 
-Learning how to use node.js
+Plant proejct.
