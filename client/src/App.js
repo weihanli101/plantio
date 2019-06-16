@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
+import { Navbar, Button, Alignment } from "@blueprintjs/core";
 import './App.css';
 
 class App extends Component {
@@ -27,46 +27,28 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      <div>
-        <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
-            </Button>
-            {
-              !isAuthenticated() && (
-                  <Button
-                    id="qsLoginBtn"
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                  </Button>
-                )
-            }
-            {
-              isAuthenticated() && (
-                  <Button
-                    id="qsLogoutBtn"
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
-                  </Button>
-                )
-            }
-          </Navbar.Header>
-        </Navbar>
-      </div>
+      <Navbar>
+      <Navbar.Group align={Alignment.LEFT}>
+        <Navbar.Heading>Plantio</Navbar.Heading>
+        <Navbar.Divider />
+        <Button className="bp3-minimal" icon="home" text="Home" onClick={this.goTo.bind(this, 'home')}/>
+        {
+          !isAuthenticated() && (
+            <Button className="bp3-minimal" icon="log-in" text="Login" onClick={this.login.bind(this)} />
+          )
+        }
+        {
+          isAuthenticated()&& (
+            <Button className="bp3-minimal" icon="log-out" text="Logout" onClick={this.logout.bind(this)} />
+          )
+        }
+      </Navbar.Group>
+      <Navbar.Group align={Alignment.RIGHT}>
+        <Button className='bp3-minimal bp3-icon-notifications'/>
+        <Button className='bp3-minimal bp3-icon-cog'/>
+        <Button className='bp3-minimal bp3-icon-user'/>
+      </Navbar.Group>
+    </Navbar>
     );
   }
 }
