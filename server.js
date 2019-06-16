@@ -6,6 +6,7 @@ const io               = require('socket.io')(http);
 const mongoose         = require('mongoose');
 const cors             = require('cors');
 const routes           = require('./routes');
+const helmet           = require('helmet');
 
 
 // middleware
@@ -13,6 +14,7 @@ app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors());
+app.use(helmet());
 
 // routes
 app.use('/', routes);
@@ -78,6 +80,6 @@ mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
 })
 
 // TODO: 04/16/2018 move into port into config file
-const server = http.listen(process.env.PORT || 3000, () => {
+const server = http.listen(process.env.PORT || 1234, () => {
 	console.log('server is listening on port', server.address().port)
 })

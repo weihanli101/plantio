@@ -15,10 +15,13 @@
   "author": "weihanli",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "auth0-js": "^9.10.2",
     "body-parser": "^1.18.2",
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.3",
+    "helmet": "^3.16.0",
     "mongoose": "^5.5.0",
     "moongoose": "0.0.5",
     "socket.io": "^2.1.0"
