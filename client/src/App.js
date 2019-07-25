@@ -28,27 +28,31 @@ class App extends Component {
 
     return (
       <Navbar>
-      <Navbar.Group align={Alignment.LEFT}>
-        <Navbar.Heading>Plantio</Navbar.Heading>
-        <Navbar.Divider />
-        <Button className="bp3-minimal" icon="home" text="Home" onClick={this.goTo.bind(this, 'home')}/>
-        {
-          !isAuthenticated() && (
-            <Button className="bp3-minimal" icon="log-in" text="Login" onClick={this.login.bind(this)} />
-          )
-        }
+        <Navbar.Group align={Alignment.LEFT}>
+          <Navbar.Heading>Plantio</Navbar.Heading>
+          <Navbar.Divider />
+          <Button className="bp3-minimal" icon="home" text="Home" onClick={this.goTo.bind(this, 'home')}/>
+          {
+            !isAuthenticated() && (
+              <Button className="bp3-minimal" icon="log-in" text="Login" onClick={this.login.bind(this)} />
+            )
+          }
+          {
+            isAuthenticated()&& (
+              <Button className="bp3-minimal" icon="log-out" text="Logout" onClick={this.logout.bind(this)} />
+            )
+          }
+        </Navbar.Group>
         {
           isAuthenticated()&& (
-            <Button className="bp3-minimal" icon="log-out" text="Logout" onClick={this.logout.bind(this)} />
+            <Navbar.Group align={Alignment.RIGHT}>
+              <Button className='bp3-minimal bp3-icon-notifications'/>
+              <Button className='bp3-minimal bp3-icon-cog'/>
+              <Button className='bp3-minimal bp3-icon-user'/>
+            </Navbar.Group>
           )
         }
-      </Navbar.Group>
-      <Navbar.Group align={Alignment.RIGHT}>
-        <Button className='bp3-minimal bp3-icon-notifications'/>
-        <Button className='bp3-minimal bp3-icon-cog'/>
-        <Button className='bp3-minimal bp3-icon-user'/>
-      </Navbar.Group>
-    </Navbar>
+      </Navbar>
     );
   }
 }
