@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Button, Card, Elevation } from "@blueprintjs/core";
-import './PlantCard.css'
+import './PlantCardView.css'
 
-class PlantCard extends Component {
+class PlantCardView extends Component {
     render() {
         return (
             <Card interactive={true} elevation={Elevation.TWO} className="PlantCard">
-                <h2 class="bp3-heading">Plant Name</h2>
+                <h2 className="bp3-heading">Plant Name</h2>
                 <p>Card content</p>
                 <Button>Submit</Button>
             </Card>
         );
     }
 }
-export default PlantCard
+export default PlantCardView

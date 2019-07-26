@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './SearchBar.css';
 import { InputGroup } from '@blueprintjs/core';
+import './SearchBarView.css';
 
 class SearchBar extends Component {
     render() {
@@ -8,7 +8,7 @@ class SearchBar extends Component {
             <InputGroup 
                 className="MasterSearchBar"
                 large={true}
-                placeholder="Add people or groups..."
+                placeholder="Search..."
                 round={true}
                 leftIcon="search"
             />
