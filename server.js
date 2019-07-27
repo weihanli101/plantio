@@ -21,7 +21,7 @@ app.use('/', routes);
 
 
 // TODO: 04/16/2018 move into dbURL into config file
-const dbUrl = 'mongodb://tester:tester@ds121730.mlab.com:21730/node-messenger'
+const dbUrl = 'mongodb://<weihanli>:<8aetnQUPftSbbyt>@ds125588.mlab.com:25588/plant'
 
 const Message = mongoose.model('Message', {
 	name: String,
