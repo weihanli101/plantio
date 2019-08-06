@@ -3,6 +3,11 @@ import { Button, Card, Elevation } from "@blueprintjs/core";
 import './PlantCardView.css'
 
 class PlantCardView extends Component {
+
+    async componentDidMount() {
+        const result = await fetch('')
+    }
+
     render() {
         const {
             plantName,
