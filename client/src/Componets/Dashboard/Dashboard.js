@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import SearchBarView from '../SearchBar/SearchBarView';
-import PlantCardView from '../PlantCard/PlantCardView';
+import PlantCard from '../PlantCard/PlantCard';
 
-import './DashboardView.css';
+import './Dashboard.css';
 
-class DashboardView extends Component {
+class Dashboard extends Component {
 
     render(){
         return (
             <>
                 <SearchBarView />
-                <PlantCardView />
+                <PlantCard />
             </>
         );
     }
 }
-export default DashboardView;
+export default Dashboard;

@@ -5,10 +5,9 @@ const http        = require('http').Server(app);
 const io          = require('socket.io')(http);
 const mongoose    = require('mongoose');
 const cors        = require('cors');
-const routes      = require('./routes');
-const plantRouter = require('./routes/plant');
+const routes      = require('./routes/index');
+const plantRouter = require('./routes/plants');
 const helmet      = require('helmet');
-const plant = require('./controllers/plant.controller');
 
 // middleware
 app.use(express.static(__dirname));
@@ -18,8 +17,8 @@ app.use(cors());
 app.use(helmet());
 
 // routes
+app.use('/plants', plantRouter);
 app.use('/', routes);
-app.use('/plant', plantRouter);
 
 // TODO: 04/16/2018 move into dbURL into config file
 const dbUrl = 'mongodb://weihan:W4*Amgt6PtZ7@ds337377.mlab.com:37377/plant';
