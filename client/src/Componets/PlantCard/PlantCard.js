@@ -20,8 +20,6 @@ class PlantCard extends Component {
             plantName : plant.data.plantName,
             ownerID   : plant.data.ownerID,
         });
-
-        console.log(plant.data.plantName);
     }
 
     render() {
