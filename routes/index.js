@@ -1,9 +1,14 @@
 const express     = require('express');
 const router      = express.Router();
 const path        = require('path');
+const plantRouter = require('./plants');
+
 
 // static file declaration
 router.use(express.static(path.join(__dirname, 'client/build')));
+
+// API calls
+router.use('/plants', plantRouter);
 
 // production routes
 if(process.env.NODE_ENV === 'production') {
