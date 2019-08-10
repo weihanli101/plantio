@@ -1,10 +1,6 @@
 const express     = require('express');
 const router      = express.Router();
 const path        = require('path');
-const plantRouter = require('./plants');
-
-
-router.use('/plants', plantRouter);
 
 // static file declaration
 router.use(express.static(path.join(__dirname, 'client/build')));
