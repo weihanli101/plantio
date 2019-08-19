@@ -18,15 +18,6 @@ app.use(helmet());
 // routes
 app.use('/', routes);
 
-if (process.env.NODE_ENV === 'production') {
-	// Serve any static files
-	app.use(express.static(path.join(__dirname, 'client/build')));
-
-	// Handle React routing, return all requests to React app
-	app.get('*', function(req, res) {
-		res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-	});
-}
 // TODO: 04/16/2018 move into dbURL into config file
 const dbUrl = 'mongodb://weihan:W4*Amgt6PtZ7@ds337377.mlab.com:37377/plant';
 

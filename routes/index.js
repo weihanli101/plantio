@@ -7,4 +7,12 @@ const plantRouter = require('./plants');
 router.use('/plants', plantRouter);
 
 
+// static file declaration
+router.use(express.static(path.join(__dirname, '../client/build')));
+
+// build mode
+router.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/public/index.html'));
+});
+
 module.exports = router;
