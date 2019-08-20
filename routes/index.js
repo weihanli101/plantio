@@ -2,9 +2,11 @@ const express     = require('express');
 const router      = express.Router();
 const path        = require('path');
 const plantRouter = require('./plants');
+const potRouter   = require('./pot');
 
 // API calls
 router.use('/plants', plantRouter);
+router.use('/pots', potRouter);
 
 
 // static file declaration

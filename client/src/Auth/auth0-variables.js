@@ -5,4 +5,3 @@ export const AUTH_CONFIG = {
 }
 
 AUTH_CONFIG.callbackUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://plantios.herokuapp.com/callback';
-console.log(AUTH_CONFIG.callbackUrl);
