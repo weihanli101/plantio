@@ -1,0 +1,5 @@
+{
+    "domain"       : "dev-cp3sdj1r.auth0.com",
+    "clientId"     : "hB1IOYYFNMbbMV4MXOrr8hKHn54g76vg",
+    "redirect_uri" : "http://localhost:3000"
+}
