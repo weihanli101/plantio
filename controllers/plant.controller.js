@@ -1,4 +1,4 @@
-const Plant = require('../models/plant.model');;
+const Plant = require('../models/plant.model');
 
 exports.create = async (req, res) => {
     //TODO: validation for plant object
