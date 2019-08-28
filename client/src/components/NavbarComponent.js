@@ -10,26 +10,26 @@ const NavbarComponent = () => {
 		<Navbar.Group align={Alignment.LEFT}>
 			<Navbar.Heading>Plantio</Navbar.Heading>
 			<Navbar.Divider />
-			{
-				!isAuthenticated && (
-				<Button className="bp3-minimal" icon="log-in" text="Login"onClick={() =>
-					loginWithRedirect({})
-				}/>)
-			}
-			{
-			isAuthenticated && (
-				<Button className="bp3-minimal" icon="log-out" text="Logout" onClick={
-					() => logout()
-				} />)
-			}
 		</Navbar.Group>
 		{
 			isAuthenticated && (
-			<Navbar.Group align={Alignment.RIGHT}>
-				<Button className='bp3-minimal bp3-icon-notifications'/>
-				<Button className='bp3-minimal bp3-icon-cog'/>
-				<Button className='bp3-minimal bp3-icon-user'/>
-			</Navbar.Group>
+				<Navbar.Group align={Alignment.RIGHT}>
+					<Button className='bp3-minimal bp3-icon-notifications'/>
+					<Button className='bp3-minimal bp3-icon-cog'/>
+					<Button className='bp3-minimal bp3-icon-user'/>
+					<Button className="bp3-minimal" rightIcon="log-out" text="Logout" onClick={
+						() => logout()
+					}/>
+				</Navbar.Group>
+			)
+		}
+		{
+			!isAuthenticated && (
+				<Navbar.Group align={Alignment.RIGHT}>
+					<Button className="bp3-minimal" text="Dashboard" rightIcon="arrow-right" onClick={() =>
+						loginWithRedirect({})
+					}/>
+				</Navbar.Group>
 			)
 		}
 		</Navbar>
