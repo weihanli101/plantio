@@ -34,12 +34,6 @@ const NavbarComponent = () => {
             }
         </Navbar>
     )
-
-    private renderCurrentBreadcrumb = ({ text, ...restProps }: IBreadcrumbProps) => {
-        // customize rendering of last breadcrumb
-        return <Breadcrumb {...restProps}>{text} <Icon icon="star" /></Breadcrumb>;
-    };
-
 }
 
 export default NavbarComponent;
